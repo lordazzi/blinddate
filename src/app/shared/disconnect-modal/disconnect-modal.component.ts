@@ -3,7 +3,7 @@ import { ModalableDirective } from '@belomonte/async-modal-ngx';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'dark-disconnect-modal',
+  selector: 'blind-disconnect-modal',
   templateUrl: './disconnect-modal.component.html',
   styleUrl: './disconnect-modal.component.scss'
 })

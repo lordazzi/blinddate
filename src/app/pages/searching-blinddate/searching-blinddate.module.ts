@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SearchingDarkroomComponent } from './searching-darkroom.component';
+import { SearchingBlinddateComponent } from './searching-blinddate.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    SearchingDarkroomComponent
+    SearchingBlinddateComponent
   ],
   imports: [
     CommonModule,
     RouterModule
   ],
   exports: [
-    SearchingDarkroomComponent
+    SearchingBlinddateComponent
   ]
 })
-export class SearchingDarkroomModule { }
+export class SearchingBlinddateModule { }

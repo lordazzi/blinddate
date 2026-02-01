@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChatingComponent } from './pages/chating/chating.component';
-import { SearchingDarkroomComponent } from './pages/searching-darkroom/searching-darkroom.component';
+import { SearchingBlinddateComponent } from './pages/searching-blinddate/searching-blinddate.component';
 import { SelectAttractedGenderComponent } from './pages/select-attracted-gender/select-attracted-gender.component';
 import { SelectUserGenderComponent } from './pages/select-user-gender/select-user-gender.component';
 import { TryAgainComponent } from './pages/try-again/try-again.component';
@@ -19,7 +19,7 @@ const routes: Routes = [
 
   {
     path: 'searching',
-    component: SearchingDarkroomComponent
+    component: SearchingBlinddateComponent
   },
 
   {

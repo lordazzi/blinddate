@@ -1,13 +1,15 @@
 services:
-  darkroom-dev:
-    image: darkroom-dev
-    container_name: darkroom-dev
+  blinddate-dev:
+    image: blinddate-dev
+    container_name: blinddate-dev
+    privileged: true
     build:
       context: ../.
       dockerfile: ./.devcontainer/Dockerfile
-    working_dir: /darkroom
+    working_dir: /blinddate
     ports:
       - "4199:4199"
     volumes:
-      - ..:/darkroom:cached
+      - ..:/blinddate:cached
+      - /var/run/docker.sock:/var/run/docker.sock
     tty: true

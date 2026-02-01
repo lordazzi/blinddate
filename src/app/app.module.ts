@@ -6,7 +6,7 @@ import { tablerHeart, tablerHeartBroken } from '@ng-icons/tabler-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChatingModule } from './pages/chating/chating.module';
-import { SearchingDarkroomModule } from './pages/searching-darkroom/searching-darkroom.module';
+import { SearchingBlinddateModule } from './pages/searching-blinddate/searching-blinddate.module';
 import { SelectAttractedGenderModule } from './pages/select-attracted-gender/select-attracted-gender.module';
 import { SelectUserGenderModule } from './pages/select-user-gender/select-user-gender.module';
 import { DisconnectModalModule } from './shared/disconnect-modal/disconnect-modal.module';
@@ -32,7 +32,7 @@ import { TryAgainModule } from './pages/try-again/try-again.module';
     ErrorHandlingModule,
     DisconnectModalModule,
     SelectUserGenderModule,
-    SearchingDarkroomModule,
+    SearchingBlinddateModule,
     SelectAttractedGenderModule
   ],
   providers: [

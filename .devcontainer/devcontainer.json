@@ -1,10 +1,10 @@
 {
-  "name": "DarkRoom",
+  "name": "BlindDate",
   "dockerComposeFile": [
     "docker-compose.yml"
   ],
-  "service": "darkroom-dev",
-	"workspaceFolder": "/darkroom",
+  "service": "blinddate-dev",
+	"workspaceFolder": "/blinddate",
   "postCreateCommand": "./.devcontainer/auth.sh",
 	"customizations": {
 		"vscode": {

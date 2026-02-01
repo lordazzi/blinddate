@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Gender } from '../../domain/gender.enum';
 
 @Component({
-  selector: 'dark-try-again',
+  selector: 'blind-try-again',
   templateUrl: './try-again.component.html',
   styleUrl: './try-again.component.scss'
 })

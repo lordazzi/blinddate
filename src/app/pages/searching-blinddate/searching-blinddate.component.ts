@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { FindStrangerParody } from '@belomonte/ngx-parody-api';
 
 @Component({
-  selector: 'dark-searching-darkroom',
-  templateUrl: './searching-darkroom.component.html',
-  styleUrl: './searching-darkroom.component.scss'
+  selector: 'blind-searching-blinddate',
+  templateUrl: './searching-blinddate.component.html',
+  styleUrl: './searching-blinddate.component.scss'
 })
-export class SearchingDarkroomComponent implements OnInit {
+export class SearchingBlinddateComponent implements OnInit {
 
   controller = new AbortController();
 

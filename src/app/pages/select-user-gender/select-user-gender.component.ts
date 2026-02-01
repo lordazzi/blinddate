@@ -4,7 +4,7 @@ import { firstValueFrom, timer } from 'rxjs';
 import { Gender } from '../../domain/gender.enum';
 
 @Component({
-  selector: 'dark-select-user-gender',
+  selector: 'blind-select-user-gender',
   templateUrl: './select-user-gender.component.html',
   styleUrl: './select-user-gender.component.scss'
 })

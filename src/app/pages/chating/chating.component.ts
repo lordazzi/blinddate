@@ -12,7 +12,7 @@ import { GlobalErrorHandler } from '../../shared/error-handling/global.error-han
 import { HeaderTitleFactory } from './header-title.factory';
 
 @Component({
-  selector: 'dark-chating',
+  selector: 'blind-chating',
   templateUrl: './chating.component.html',
   styleUrl: './chating.component.scss',
   providers: [
