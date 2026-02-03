@@ -9,12 +9,12 @@ export class ParodyConfigNPoolOpts implements NPoolOpts<NRelay1> {
   }
 
   async reqRouter(filters: NostrFilter[]): Promise<Map<string, NostrFilter[]>> {
-    return new Map([[ 'ws://localhost:7777/', filters ]]);
-    // return new Map([[ 'wss://relay.nostr.net/', filters ]]);
+    // return new Map([[ 'ws://localhost:7777/', filters ]]);
+    return new Map([[ 'wss://relay.nostr.net/', filters ]]);
   }
 
   async eventRouter(): Promise<string[]> {
-    return [ 'ws://localhost:7777/' ];
-    // return [ 'wss://relay.nostr.net/' ];
+    // return [ 'ws://localhost:7777/' ];
+    return [ 'wss://relay.nostr.net/' ];
   }
 }

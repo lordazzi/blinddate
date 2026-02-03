@@ -2,7 +2,7 @@
   "name": "blinddate",
   "version": "1.0.0",
   "scripts": {
-    "dev:web": "CI=TRUE ng serve --host=0.0.0.0",
+    "dev": "CI=TRUE ng serve --host=0.0.0.0",
     "build": "sh ./build.sh",
     "waydroid": "waydroid app install ./dist/app-debug.apk"
   },
@@ -18,9 +18,9 @@
     "@angular/router": "^18.2.0",
     "@belomonte/async-modal-ngx": "^18.1.1",
     "@belomonte/ngx-parody-api": "^0.2.1",
-    "@capacitor/android": "^8.0.2",
-    "@capacitor/cli": "^7.4.5",
-    "@capacitor/core": "^8.0.2",
+    "@capacitor/android": "^5.7.5",
+    "@capacitor/cli": "^5.7.5",
+    "@capacitor/core": "^5.7.5",
     "@ng-icons/core": "^29.5.1",
     "@ng-icons/tabler-icons": "^29.5.1",
     "@nostrify/nostrify": "npm:@jsr/nostrify__nostrify@^0.36.1",
