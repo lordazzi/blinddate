@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "CI=TRUE ng serve --host=0.0.0.0",
+    "icons": "npx capacitor-assets generate",
     "build": "sh ./build.sh",
     "waydroid": "waydroid app install ./dist/app-debug.apk"
   },
@@ -17,7 +18,7 @@
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
     "@belomonte/async-modal-ngx": "^18.1.1",
-    "@belomonte/ngx-parody-api": "^0.2.1",
+    "@belomonte/ngx-parody-api": "^0.2.2",
     "@capacitor/android": "^5.7.5",
     "@capacitor/cli": "^5.7.5",
     "@capacitor/core": "^5.7.5",

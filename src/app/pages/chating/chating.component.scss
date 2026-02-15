@@ -81,6 +81,12 @@
         float: left;
         border: 15px solid transparent;
       }
+
+      &.disconnected {
+        background-color: var(--disconnected);
+        color: var(--base);
+        text-align: center;
+      }
   
       &.received {
         float: left;

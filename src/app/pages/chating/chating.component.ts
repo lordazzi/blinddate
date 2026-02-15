@@ -24,7 +24,10 @@ export class ChatingComponent implements OnInit, OnDestroy {
   @ViewChild('history')
   historyElement!: ElementRef;
 
-  title = '';
+  title: {
+    who: string,
+    adjective: string
+  } | null = null;
   messages = new Array<Message>();
 
   genderMale = Gender.MALE;
@@ -56,7 +59,7 @@ export class ChatingComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.fetchRouteData();
-    this.loadTitle();
+    this.generateTitle();
     this.scrollBottom();
     this.startConversation();
     this.listenCurrentUser();
@@ -66,19 +69,23 @@ export class ChatingComponent implements OnInit, OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  triggerDisconnectModal(): void {
-    this.modalService
-    .createModal(DisconnectModalComponent)
-    .build()
-    .subscribe({
-      next: response => {
-        if (response) {
-          this.findStrangerParody
-            .endSession()
-            .then(() => this.redirectTryAgain());
+  triggerDisconnect(): void {
+    if (this.youDisconnected || this.partnerDisconnected) {
+      this.redirectTryAgain();
+    } else {
+      this.modalService
+      .createModal(DisconnectModalComponent)
+      .build()
+      .subscribe({
+        next: response => {
+          if (response) {
+            this.findStrangerParody
+              .endSession()
+              .then(() => this.redirectTryAgain());
+          }
         }
-      }
-    });
+      });
+    }
   }
 
   private redirectTryAgain(): void {
@@ -108,7 +115,7 @@ export class ChatingComponent implements OnInit, OnDestroy {
     });
   }
 
-  private loadTitle(): void {
+  private generateTitle(): void {
     this.title = this.headerTitleFactory.getTitle(this.searchGender);
   }
 
@@ -122,8 +129,22 @@ export class ChatingComponent implements OnInit, OnDestroy {
     this.subscriptions.add(this.talkToStrangerParody
       .listenStrangerStatus(this.partner)
       .subscribe({
-        next: event => this.partnerIsTyping = event.content === 'typing'
+        next: event => this.onPartnerStatusChange(event)
       }));
+  }
+
+  private onPartnerStatusChange(event: NostrEvent): void {
+    if (event.content === 'typing') {
+      this.partnerIsTyping = true;
+      this.scrollConversationToTheEnd();
+    } else if (event.content === 'disconnected') {
+      this.partnerIsTyping = false;
+      this.youDisconnected = false;
+      this.partnerDisconnected = true;
+      this.findStrangerParody.endSession();
+    } else {
+      this.partnerIsTyping = false;
+    }
   }
 
   private listenCurrentUser(): void {

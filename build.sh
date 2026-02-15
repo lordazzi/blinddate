@@ -1,5 +1,5 @@
 CI=TRUE ng build --configuration production
-npx cap sync android
+CI=TRUE npx cap sync android
 sed -i "/<base /d" "./android/app/src/main/assets/public/index.html"
 cd android
 ./gradlew clean assembleDebug

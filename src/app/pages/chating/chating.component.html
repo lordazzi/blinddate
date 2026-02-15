@@ -1,26 +1,19 @@
-<header class="heading bg-base">
-  <span class="title">{{title}}</span>
+<header *ngIf="title" class="heading bg-base">
+  <span class="title">new {{title.who}} found, be {{title.adjective}}</span>
 </header>
 
 <section #history class="history">
   <div>
-    <div
-      *ngFor="let message of messages"
-      class="message"
-      [class.send]="message.author.me"
-      [class.received]="!message.author.me"
-      [class.bg-male]="message.author.gender === genderMale"
-      [class.bg-female]="message.author.gender === genderFemale"
-    >
+    <div *ngFor="let message of messages" class="message" [class.send]="message.author.me"
+      [class.received]="!message.author.me" [class.bg-male]="message.author.gender === genderMale"
+      [class.bg-female]="message.author.gender === genderFemale">
       <div class="author">{{ message.author | messageAuthorName }}:</div>
       <div *ngFor="let paragraph of message.paragraphs">{{paragraph}}</div>
       <time>{{ message.time | messageTime }}</time>
     </div>
-  
+
     <div *ngIf="partnerIsTyping" class="animate__animated animate__fadeInLeft message received"
-      [class.bg-male]="partner.gender === genderMale"
-      [class.bg-female]="partner.gender === genderFemale"
-    >
+      [class.bg-male]="partner.gender === genderMale" [class.bg-female]="partner.gender === genderFemale">
       <div class="author">{{ partner | messageAuthorName }}:</div>
       <div class="typing-ellipsis">
         <div class="dot"></div>
@@ -31,9 +24,7 @@
     </div>
 
     <div *ngIf="userIsTyping" class="animate__animated animate__fadeInRight message send"
-      [class.bg-male]="userGender === genderMale"
-      [class.bg-female]="userGender === genderFemale"
-    >
+      [class.bg-male]="userGender === genderMale" [class.bg-female]="userGender === genderFemale">
       <div class="author">You:</div>
       <div class="typing-ellipsis">
         <div class="dot"></div>
@@ -43,12 +34,19 @@
       <time>now</time>
     </div>
   </div>
+
+  <div *ngIf="partnerDisconnected">
+    <div class="message disconnected">{{title ? title.who : 'Partner'}} disconnected</div>
+  </div>
 </section>
 
 <div class="compose">
-  <textarea #messageField (keydown.enter)="sendMessage(messageField)" (keydown)="onTyping()" placeholder="Press enter to send message"></textarea>
-  <button type="button" (click)="triggerDisconnectModal()" class="bg-primary brutal-button-icon disconnect-button">
+  <textarea #messageField (keydown.enter)="sendMessage(messageField)" (keydown)="onTyping()"
+    placeholder="Press enter to send message"
+    [attr.readonly]="youDisconnected || partnerDisconnected ? 'readonly' : null"></textarea>
+  <button type="button" (click)="triggerDisconnect()" class="bg-primary brutal-button-icon disconnect-button">
     <ng-icon name="tablerHeartBroken" class="cracked-heart" size="24" color="currentColor"></ng-icon>
-    <ng-icon name="deepHeartBroken" class="broken-heart" size="24" color="currentColor" style="stroke-width:var(--ng-icon__stroke-width, 2)"></ng-icon>
+    <ng-icon name="deepHeartBroken" class="broken-heart" size="24" color="currentColor"
+      style="stroke-width:var(--ng-icon__stroke-width, 2)"></ng-icon>
   </button>
 </div>
